@@ -78,25 +78,7 @@ with mp_objectron.Objectron(static_image_mode=False,
             mp_drawing.draw_landmarks(frame, pose_landmarks_proto, mp_pose.POSE_CONNECTIONS,
                                       mp_drawing_styles.get_default_pose_landmarks_style())
 
-        # Process each objectron instance
-        results_shoe = shoe_objectron.process(frame)
-        results_chair = chair_objectron.process(frame)
-        #results_keyboard = keyboard_objectron.process(frame)
-        results_cup = cup_objectron.process(frame)
-
-        # Draw detected objects for each instance
-        for results, model_name in zip([results_shoe, results_chair, results_cup], ['Shoe', 'Chair', 'Cup']):
-            if results.detected_objects:
-                for detected_object in results.detected_objects:
-                    mp_drawing.draw_landmarks(frame, detected_object.landmarks_2d, mp_objectron.BOX_CONNECTIONS)
-                    mp_drawing.draw_axis(frame, detected_object.rotation, detected_object.translation)
-                    cv2.putText(frame, model_name, (int(detected_object.translation[0]), int(detected_object.translation[1])),
-                                cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
-
-        cv2.imshow('Combined Detection', frame)
-
-        if cv2.waitKey(5) & 0xFF == 27:
-            break
+        
 
 cap.release()
 cv2.destroyAllWindows()
