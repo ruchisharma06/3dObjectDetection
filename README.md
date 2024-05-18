@@ -2,6 +2,9 @@
 
 This Python code utilizes the MediaPipe library to perform simultaneous object detection for shoes, chairs, and cups, face detection, and pose detection using the Objectron, FaceMesh, and Pose models from MediaPipe. The code captures video from the default camera using OpenCV and processes each frame to detect and draw landmarks for different objects.
 
+<img width="313" alt="Screen Shot 2024-05-18 at 3 03 01 PM" src="https://github.com/ruchisharma06/3dObjectDetection/assets/116240606/897b891a-3368-4445-b077-df0add7867e7">
+
+
 # Main Loop
 
 The code runs a loop to continuously capture frames from the camera and process each frame.
